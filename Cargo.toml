@@ -1,0 +1,26 @@
+[package]
+name = "color-thief"
+version = "0.1.0"
+authors = ["Reizner Evgeniy <razrfalcon@gmail.com>"]
+keywords = ["graphics", "color"]
+categories = ["algorithms", "multimedia"]
+description = "Grabs the dominant color or a representative color palette from an image."
+repository = "https://github.com/RazrFalcon/color-thief-rs"
+documentation = "https://docs.rs/color-thief/"
+readme = "README.md"
+license = "MIT"
+
+[dependencies]
+rgb = "0.7"
+
+[dev-dependencies]
+bencher = "0.1"
+
+[dev-dependencies.image]
+version = "0.14"
+default-features = false
+features = ["jpeg", "png_codec"]
+
+[[bench]]
+name = "find_palette"
+harness = false

@@ -1,0 +1,2 @@
+- photo1.jpg is from https://github.com/lokesh/color-thief/tree/master/examples/img
+- iguana.png is from https://pixabay.com/en/iguana-reptile-lizard-dragon-2427495/
