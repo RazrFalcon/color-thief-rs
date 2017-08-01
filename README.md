@@ -8,7 +8,7 @@ The implementation itself is a heavily modified
 
 ### Differences
 
-- There is no `getColor` method, since it's [just a shorthand](color-thief_L76) for `getPalette`.
+- There is no `getColor` method, since it's [just a shorthand][color-thief_L76] for `getPalette`.
 - Output colors are a bit different from JS version. See [tests](tests/test.rs) for details.
 
 [color-thief_L76]: https://github.com/lokesh/color-thief/blob/b0115131476149500828b01db43ca701b099a315/src/color-thief.js#L76
