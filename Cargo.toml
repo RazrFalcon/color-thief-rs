@@ -11,13 +11,13 @@ readme = "README.md"
 license = "MIT"
 
 [dependencies]
-rgb = "0.7"
+rgb = "0.8"
 
 [dev-dependencies]
 bencher = "0.1"
 
 [dev-dependencies.image]
-version = "0.14"
+version = "0.22"
 default-features = false
 features = ["jpeg", "png_codec"]
 
