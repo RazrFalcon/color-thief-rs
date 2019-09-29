@@ -17,6 +17,7 @@ extern crate rgb;
 
 use std::cmp;
 use std::fmt;
+use std::error;
 use std::u8;
 
 pub use rgb::RGB8 as Color;
@@ -59,6 +60,8 @@ impl fmt::Display for Error {
         write!(f, "{}", msg)
     }
 }
+
+impl error::Error for Error {}
 
 /// Returns a representative color palette of an image.
 ///
