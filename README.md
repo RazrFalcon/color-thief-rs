@@ -30,7 +30,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-color-thief = "0.1"
+color-thief = "0.2"
 ```
 
 ### License
