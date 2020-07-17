@@ -391,7 +391,7 @@ fn cut(
         ColorChannel::Blue =>  (vbox.b_min as i32, vbox.b_max as i32),
     };
 
-    for i in vbox_min..vbox_max {
+    for i in vbox_min..vbox_max + 1 {
         if partial_sum[i as usize] <= total / 2 {
             continue;
         }
