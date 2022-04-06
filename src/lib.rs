@@ -473,7 +473,11 @@ fn quantize(
     // Reverse to put the highest elements first into the color map.
     pq.reverse();
 
-    Ok(pq.iter().map(|v| v.average).collect())
+    // Keep at most `max_colors` in the resulting vector.
+    let mut colors: Vec<Color> = pq.iter().map(|v| v.average).collect();
+    colors.truncate(max_colors as usize);
+
+    Ok(colors)
 }
 
 // Inner function to do the iteration.
