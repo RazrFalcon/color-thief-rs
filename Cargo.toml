@@ -17,9 +17,9 @@ rgb = "0.8"
 bencher = "0.1"
 
 [dev-dependencies.image]
-version = "0.22"
+version = "0.24.6"
 default-features = false
-features = ["jpeg", "png_codec"]
+features = ["jpeg", "png"]
 
 [[bench]]
 name = "find_palette"

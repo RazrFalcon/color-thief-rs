@@ -5,10 +5,14 @@ use std::path;
 
 use color_thief::{Color, ColorFormat};
 
-fn find_color(t: image::ColorType) -> ColorFormat {
-    match t {
-        image::ColorType::RGB(8) => ColorFormat::Rgb,
-        image::ColorType::RGBA(8) => ColorFormat::Rgba,
+fn get_image_buffer(img: image::DynamicImage) -> (Vec<u8>, ColorFormat) {
+    match img {
+        image::DynamicImage::ImageRgb8(buffer) => {
+            (buffer.to_vec(), color_thief::ColorFormat::Rgb)
+        }
+        image::DynamicImage::ImageRgba8(buffer) => {
+            (buffer.to_vec(), color_thief::ColorFormat::Rgba)
+        }
         _ => unreachable!(),
     }
 }
@@ -16,8 +20,8 @@ fn find_color(t: image::ColorType) -> ColorFormat {
 #[test]
 fn image1() {
     let img = image::open(&path::Path::new("images/photo1.jpg")).unwrap();
-    let color_type = find_color(img.color());
-    let colors = color_thief::get_palette(&img.raw_pixels(), color_type, 10, 10).unwrap();
+    let (buffer, color_type) = get_image_buffer(img);
+    let colors = color_thief::get_palette(&buffer, color_type, 10, 10).unwrap();
 
     assert_eq!(colors[0], Color::new( 54,  37,  28)); //  55,  37,  29
     assert_eq!(colors[1], Color::new(215, 195, 134)); // 213, 193, 136
@@ -33,8 +37,8 @@ fn image1() {
 #[test]
 fn image2() {
     let img = image::open(&path::Path::new("images/iguana.png")).unwrap();
-    let color_type = find_color(img.color());
-    let colors = color_thief::get_palette(&img.raw_pixels(), color_type, 10, 10).unwrap();
+    let (buffer, color_type) = get_image_buffer(img);
+    let colors = color_thief::get_palette(&buffer, color_type, 10, 10).unwrap();
 
     assert_eq!(colors[0], Color::new( 71,  60,  53));
     assert_eq!(colors[1], Color::new(205, 205, 202));
